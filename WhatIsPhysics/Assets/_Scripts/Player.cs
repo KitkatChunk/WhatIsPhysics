@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    public GameController gameController;
+
     [System.Serializable]
     public enum HeroAnimState
     {
@@ -84,6 +86,27 @@ public class Player : MonoBehaviour
             heroRigidBody.AddForce(Vector2.up * jumpForce);
             isGrounded = false;
             jumpSound.Play();
+        }
+
+    }
+
+    // Detecting collisions between the player and other objects and substracting the amount of hearts that each enemy/obsticle hurt the player.
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        switch (other.gameObject.tag)
+        {
+            case "Spikes":
+                gameController.Hearts -= 1;
+                break;
+
+            case "Coin":
+                gameController.Score += 50;
+                break;
+
+            case "SpaceShipYellow":
+                gameController.Hearts -= 1;
+                break;
+
         }
 
     }
