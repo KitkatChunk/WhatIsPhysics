@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
 
     public AudioSource jumpSound;
 
+    public Vector2 maxVelocity = new Vector2(20, 20);
     // Start is called before the first frame update
     void Start()
     {
@@ -88,6 +89,11 @@ public class Player : MonoBehaviour
             jumpSound.Play();
         }
 
+        heroRigidBody.velocity = new Vector2(
+            Mathf.Clamp( heroRigidBody.velocity.x, -maxVelocity.x, maxVelocity.x),
+            Mathf.Clamp(heroRigidBody.velocity.y, -maxVelocity.y, maxVelocity.y)
+            );
+
     }
 
     // Detecting collisions between the player and other objects and substracting the amount of hearts that each enemy/obsticle hurt the player.
@@ -103,9 +109,7 @@ public class Player : MonoBehaviour
                 gameController.Score += 50;
                 break;
 
-            case "SpaceShipYellow":
-                gameController.Hearts -= 1;
-                break;
+      
 
         }
 
