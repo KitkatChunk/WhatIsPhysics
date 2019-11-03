@@ -10,11 +10,11 @@ public class GameController : MonoBehaviour
     public GameController gameController;
 
     [SerializeField]
-    private int _hearts;
+    private static int _hearts;
     public Text HeartsLabel;
 
     [SerializeField]
-    private int _score;
+    public static int _score;
     public Text ScoreLabel;
     //setting hearts amount and loading gameover if hearts = 0.
     public int Hearts

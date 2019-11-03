@@ -12,5 +12,6 @@ public class NewBehaviourScript : MonoBehaviour
         if (other.CompareTag("Player")) {
             SceneManager.LoadScene(newLevel);
         }
+
     }
 }

@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     public Transform groundTarget;
 
     public AudioSource jumpSound;
-
+ 
     public Vector2 maxVelocity = new Vector2(20, 20);
     // Start is called before the first frame update
     void Start()
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
             heroAnimator.SetInteger("AnimState", (int)HeroAnimState.JUMP);
             heroRigidBody.AddForce(Vector2.up * jumpForce);
             isGrounded = false;
-            jumpSound.Play();
+           jumpSound.Play();
         }
 
         heroRigidBody.velocity = new Vector2(
@@ -105,11 +105,15 @@ public class Player : MonoBehaviour
                 gameController.Hearts -= 1;
                 break;
 
-            case "Coin":
-                gameController.Score += 50;
+            case "Coin":       
+                gameController.Score += 50;      
                 break;
 
-      
+            case "Enemy":
+                gameController.Hearts -= 2;
+                break;
+
+
 
         }
 
