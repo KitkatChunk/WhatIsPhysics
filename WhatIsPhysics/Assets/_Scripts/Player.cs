@@ -2,7 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+/// <summary>
+/// Abdulkarem Alani #300993768
+/// This is a Player controllers takes care of animation state of player, Move and jump force of the player, checks if the player is grounded or not, jump sound of player, adds score and subtracts hearts.
+/// Assets were used from opengameart.
+/// https://opengameart.org/content/2d-platform-ground-stone-tiles - Ground
+///https://opengameart.org/content/krook-tree - Tree
+///https://opengameart.org/content/simple-sky - Background
+///https://opengameart.org/content/platformer-jumping-sounds -Jump sound
+///https://opengameart.org/content/completion-sound -Coin Collect
+///https://opengameart.org/content/animated-turtle -Turtle
+/// </summary>
 public class Player : MonoBehaviour
 {
     public GameController gameController;

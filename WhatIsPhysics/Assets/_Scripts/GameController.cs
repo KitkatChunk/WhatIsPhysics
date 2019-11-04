@@ -4,17 +4,32 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+/// <summary>
+/// Abdulkarem Alani #300993768
+/// This is a Game controller takes care of hearts and score UI and updates them. At game over scene if restart is presesed it loads the first level.
+/// Assets were used from opengameart.
+/// https://opengameart.org/content/2d-platform-ground-stone-tiles - Ground
+///https://opengameart.org/content/krook-tree - Tree
+///https://opengameart.org/content/simple-sky - Background
+///https://opengameart.org/content/platformer-jumping-sounds -Jump sound
+///https://opengameart.org/content/completion-sound -Coin Collect
+///https://opengameart.org/content/animated-turtle -Turtle
+/// </summary>
+
 public class GameController : MonoBehaviour
 {
-
-    public GameController gameController;
+    void Start()
+    {
+        Hearts = 3;
+        Score = 0;
+    }
 
     [SerializeField]
     private static int _hearts;
     public Text HeartsLabel;
 
     [SerializeField]
-    public static int _score;
+    private static int _score;
     public Text ScoreLabel;
     //setting hearts amount and loading gameover if hearts = 0.
     public int Hearts
@@ -32,7 +47,7 @@ public class GameController : MonoBehaviour
             }
             else
             {
-                HeartsLabel.text = "Hearts: " + _hearts.ToString();
+               HeartsLabel.text = "Hearts: " + _hearts.ToString();
             }
 
 
@@ -56,11 +71,7 @@ public class GameController : MonoBehaviour
 
     }
     // Start is called before the first frame update
-    void Start()
-    {
-        Hearts = 3;
-        Score = 0;
-    }
+ 
 
     // Update is called once per frame
     void Update()
